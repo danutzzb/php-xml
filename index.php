@@ -13,8 +13,9 @@
         </form>
     
         <?php
-           
+           if(isset($_POST['adress'])){
            $rss = simplexml_load_file($_POST['url']); 
+           }
            if(isset($_POST['news'])){$news = $_POST['feedPage'];header("Location:$news");}
            
         ?>
