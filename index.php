@@ -5,11 +5,18 @@
         <title></title>
     </head>
     <body>
+        <form method="post" action="">
+           
+            <input type="url" placeholder="Enter Rss Feed URL" name="url">
+            <input type="submit" name="adress" value="Read News">
+
+        </form>
     
         <?php
-            
-           $rss = simplexml_load_file('rss.xml'); 
+           
+           $rss = simplexml_load_file($_POST['url']); 
            if(isset($_POST['news'])){$news = $_POST['feedPage'];header("Location:$news");}
+           
         ?>
         <form method="post" action="" name="feed">
             <select name="feedPage">
