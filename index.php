@@ -16,16 +16,10 @@
            if(isset($_POST['adress'])){
            
                $rss = simplexml_load_file($_POST['url']); 
-           }
            
-           if(isset($_POST['news'])){
-                
-               $news = $_POST['feedPage'];
-               header("Location:$news");
-                
            }
-           
-        ?>
+
+         ?> 
         <form method="post" action="" name="feed">
             <select name="feedPage">
                 <?php  foreach ($rss->channel->item as $url){
@@ -35,6 +29,17 @@
             <input type="submit" name="news" value="Read News">
            
         </form>
+        <?php
+           if(isset($_POST['news'])){
+               
+               $news = $_POST['feedPage'];
+               $page = file_get_contents($news);
+               echo $page;
+               
+               
+           }
+        ?>
+        
         
     </body>
 </html>
